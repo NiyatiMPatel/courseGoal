@@ -6,8 +6,6 @@ export async function updateGoalInDB({title,description}:NewGoal) {
   id: Math.random()
  }
  await new Promise(resolve => setTimeout(resolve, 1500))
- // if (newGoal.toLowerCase().includes("error")) {
- //     throw new Error("Failed to update name")
- // }
+
  return courseGoal;
 }

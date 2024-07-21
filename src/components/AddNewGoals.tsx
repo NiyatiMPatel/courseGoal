@@ -1,6 +1,33 @@
-import { type FC } from "react";
+import { useActionState, type FC } from "react";
+import { updateGoalInDB } from "../helper/api";
 
-const AddNewGoals: FC<AddNewGoalProps> = ({status, goalsActionFunction}) => {
+const AddNewGoals: FC<ChildComponentProps> = ({dispatch}) => {
+  // const[stateVariable, formActionFunctionWrapper, loadingStatus] = useActionState(formSubmitFunction, initialState)
+
+  const [, goalsActionFunction, isPending] = useActionState<CourseGoal, FormData>(actionFunc,{title:"", description:"", id:0})
+
+  // ADD NEW GOAL TO THE LIST AND UPDATE THE STATE
+  async function actionFunc(prevState:CourseGoal, formData:FormData): Promise<CourseGoal>{
+    let title = formData.get("title") as string;
+    let description = formData.get("description") as string;
+    try {
+      const goal:NewGoal = {
+        title,
+        description,
+      }
+      if(title.trim() !=="" && description.trim()!==""){
+        const newGoal:CourseGoal = await updateGoalInDB(goal)
+        dispatch({type:"ADD", payload:newGoal})
+      return newGoal
+      }else{
+        return prevState;
+      }
+    } catch (error) {
+      console.log(error)
+      return prevState;
+    }
+  }
+
 return (
     <form action={goalsActionFunction}>
       <p>
@@ -12,7 +39,7 @@ return (
      <input type="text" name="description" id="description" required/>
      </p>
      <p>
-     <button>{status===true ? "Adding Goal" : "Add Goal"}</button>
+     <button disabled={isPending}>{isPending===true ? "Adding Goal" : "Add Goal"}</button>
      </p>
     </form>
   )
