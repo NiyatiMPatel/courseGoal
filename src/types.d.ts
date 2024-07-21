@@ -1,6 +1,3 @@
-import { type ReactNode } from "react";
-
-
 type NewGoal ={
  title:string;
  description:string;
@@ -14,19 +11,11 @@ type CourseGoal ={
 
 type CourseGoals =CourseGoal[]
 
-type HeaderProps ={
- image: {
-  src:string;
-  alt: string;
- }
- children: ReactNode;
+type CourseGoalListProps = {
+ goals: CourseGoals
 }
 
 type AddNewGoalProps = {
  status:boolean;
  goalsActionFunction: (payload:FormData)=>void
- }
-
- type CourseGoalListProps = {
-  goals: CourseGoal[]
  }

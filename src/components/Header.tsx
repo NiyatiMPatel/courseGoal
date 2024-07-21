@@ -1,12 +1,11 @@
 import { type FC } from "react";
-import { HeaderProps } from "../types";
+import goalsImg from '../assets/goals.webp';
 
-
-const Header: FC<HeaderProps> = ({image, children}) => {
+const Header: FC = () => {
   return (
     <header>
-     <img src={image.src} alt={image.alt} />
-     {children}
+     <img src={goalsImg} alt="Course Goal Image" />
+     <h1>Your Course Goals</h1>
     </header>
   )
 }

@@ -1,11 +1,9 @@
 import { type FC } from "react"
 import CourseGoal from "./CourseGoal";
-import { CourseGoalListProps } from "../types";
-
 
 const CourseGoalList:FC<CourseGoalListProps> = ({goals}) => {
 
-  if (!goals) {
+  if (goals.length===0) {
     return <p>No goals found.</p>;
   }
   return (

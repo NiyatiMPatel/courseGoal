@@ -1,17 +1,4 @@
 import { type FC } from "react";
-import { NewGoal } from "../types";
-
-// const CourseGoal = ({title, description}:CourseGoalProps) => {
-//   return (
-//     <article>
-//      <div>
-//       <h2>{title}</h2>
-//       <p>{description}</p>
-//      </div>
-//      <button>Delete</button>
-//     </article>
-//   )
-// }
 
 const CourseGoal: FC<NewGoal> = ({title, description}) => {
    return (

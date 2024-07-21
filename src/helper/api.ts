@@ -1,5 +1,3 @@
-import { CourseGoal, NewGoal } from "../types";
-
 export async function updateGoalInDB({title,description}:NewGoal) {
  // Sleep for 1500ms to mimic an API call round trip
  let courseGoal:CourseGoal = {
