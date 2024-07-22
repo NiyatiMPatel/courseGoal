@@ -1,10 +1,10 @@
 import {type FC } from "react"
 import CourseGoal from "./CourseGoal";
 
-const CourseGoalList:FC<CourseGoalListProps & ChildComponentProps> = ({goals,dispatch}) => {
+const CourseGoalList:FC<CourseGoalListProps & DispatchGoalsActions> = ({goals,dispatch}) => {
 
   const deleteHandler = (id:number)=>{
-      dispatch({ type: "DELETE", payload: id });
+      dispatch({ type: "DELETE", payload: id as number});
   }
 
   if (goals.length===0) {

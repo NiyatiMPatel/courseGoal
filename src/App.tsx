@@ -11,7 +11,8 @@ function reducer(state:CourseGoals, action:GoalsAction): CourseGoals {
     return [...state, payload as CourseGoal];
       
     case "DELETE":
-      return state.filter((st)=>st.id !== payload)
+      return state.filter((st)=>st.id !== payload as number);
+
     default:
       return state;
   }
@@ -19,7 +20,7 @@ function reducer(state:CourseGoals, action:GoalsAction): CourseGoals {
 
 const App = () => {
 
-  const [state, dispatch] = useReducer(reducer, [])
+  const [state, dispatch] = useReducer<CourseGoals, [action: GoalsAction]>(reducer, [])
 
   return (
     <main>

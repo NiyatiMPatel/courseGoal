@@ -23,6 +23,6 @@ type:GoalsActionKind;
 payload: CourseGoal | number
 }
 
-type ChildComponentProps = {
+type DispatchGoalsActions = {
  dispatch: React.Dispatch<GoalsAction>;
 }

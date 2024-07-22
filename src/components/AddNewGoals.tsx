@@ -1,7 +1,7 @@
 import { useActionState, type FC } from "react";
 import { updateGoalInDB } from "../helper/api";
 
-const AddNewGoals: FC<ChildComponentProps> = ({dispatch}) => {
+const AddNewGoals: FC<DispatchGoalsActions> = ({dispatch}) => {
   // const[stateVariable, formActionFunctionWrapper, loadingStatus] = useActionState(formSubmitFunction, initialState)
 
   const [, goalsActionFunction, isPending] = useActionState<CourseGoal, FormData>(actionFunc,{title:"", description:"", id:0})
