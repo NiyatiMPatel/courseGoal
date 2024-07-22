@@ -24,11 +24,6 @@ type WarningBoxProps = {
 
 type InfoBoxProps = HintBoxProps | WarningBoxProps;
 
-type AddNewGoalProps = {
-  status: boolean;
-  goalsActionFunction: (payload: FormData) => void;
-};
-
 type GoalsActionKind = "ADD" | "DELETE";
 
 type GoalsAction = {
