@@ -1,28 +1,41 @@
 type NewGoal = {
- title:string;
- description:string;
-}
+  title: string;
+  description: string;
+};
 
-type CourseGoal = NewGoal & { id:number}
+type CourseGoal = NewGoal & { id: number };
 
-type CourseGoals = CourseGoal[]
+type CourseGoals = CourseGoal[];
 
 type CourseGoalListProps = {
- goals: CourseGoals
-}
+  goals: CourseGoals;
+};
+
+type HintBoxProps = {
+  mode: "hint";
+  children: ReactNode;
+};
+
+type WarningBoxProps = {
+  mode: "warning";
+  severity: "low" | "medium" | "high";
+  children: ReactNode;
+};
+
+type InfoBoxProps = HintBoxProps | WarningBoxProps;
 
 type AddNewGoalProps = {
- status:boolean;
- goalsActionFunction: (payload:FormData)=>void
- }
- 
-type GoalsActionKind = 'ADD' | 'DELETE'
+  status: boolean;
+  goalsActionFunction: (payload: FormData) => void;
+};
+
+type GoalsActionKind = "ADD" | "DELETE";
 
 type GoalsAction = {
-type:GoalsActionKind;
-payload: CourseGoal | number
-}
+  type: GoalsActionKind;
+  payload: CourseGoal | number;
+};
 
 type DispatchGoalsActions = {
- dispatch: React.Dispatch<GoalsAction>;
-}
+  dispatch: React.Dispatch<GoalsAction>;
+};
